@@ -1,0 +1,140 @@
+\documentclass{solis}
+\usepackage{lipsum} % draft only
+
+\addbibresource{ref.bib}
+
+% primary information, mandatory, except 'subtitle'
+\title{This is the greatest title for a great article}
+\subtitle{and also an amazing subtitle for this terrific article}
+\author{Augusto Goulart}
+
+% secondary information, all mandatory
+\controlnumber{A230000}
+\context{Summary of activities}
+\releasedate{6th of March, 2023}
+\doctype{Digital media only}
+\docclass{Unrestricted}
+\docstatus{Draft}
+
+% branch information, recommended but can be left empty
+% without any visual issues
+%\branch{Local Branch}
+\address{City, UF -- Brazil}
+\email{info@domain.org}
+\contact{+55 519 9900-0000} % or website
+
+% optional, can be found at '\makebackcover'
+\begin{acknowledgement}
+    \lipsum[18]
+\end{acknowledgement}
+
+% optional, can be found at '\makeabstract'
+\begin{abstract}
+    \lipsum[20-21]
+\end{abstract}
+
+\begin{document}
+\frontmatter
+% adds all available frontmatter pages
+% or comment below to customize the frontmatter
+\maketitle
+% equals to:
+% \makecover
+% \makebackcover
+% \makehistory
+% \makeabstract
+% \maketoc
+
+\mainmatter
+% start of text
+\section[Introduction]{Introduction to Solis}
+\label{sec:Intro}
+\lipsum[3]
+\begin{widetext}
+    \lipsum[21]
+\end{widetext}
+\sidenote{So if she's somewhere near me, I hope to god she hears me...}
+\lipsum[4]
+
+\paragraph{Some paragraph}
+\label{par:Some}
+\lipsum[20]
+\sidenote{Is there really no chance to start once again... You should give a chance, this can't be the end...}
+
+\section{Background}
+\label{sec:Background}
+\lipsum[5]
+\sidenote{[1] ...would you see what I see... put your hand in my hand... At the skyfall, when it crumbles... [2] And now I don't why... I just can't let it die... So if she's somewhere near me...}
+\lipsum[6]
+\footnote{I see a shark, Mr. Greenz}
+\sidenote{Roses are red, violets are blue, the sky is also blue at least during the day, during the night it is... well, it has no color, it is transparent, that's why we can see the stars.}
+
+\subsection{ABC}
+\label{subsec:Abc}
+\lipsum[8]
+\footnote{Where is such beast?}
+\footnote{There, look south}
+\footnote{I can't se...}
+
+\subsubsection{xyz}
+\label{subsubsec:Xyz}
+\lipsum[16]
+\paragraph{Another paragraph}
+\lipsum[17]
+
+\subsection{DEF}
+\label{subsec:Def}
+\lipsum[9-12]
+\parencite{levine2014}
+\begin{widetext}
+    \lipsum[21]
+\end{widetext}
+
+\part{The ``Solis''}
+\section{Policies}
+\label{sec:Policies}
+\lipsum[13]
+\begin{beware}[Of This]
+    \lipsum[25]
+\end{beware}
+
+\begin{verse}
+    So if she’s somewhere
+near me, I hope to god she
+hears me...
+\end{verse}
+\begin{quotation}
+    So if she’s somewhere
+near me, I hope to god she
+hears me...
+\end{quotation}
+\begin{quote}
+    So if she’s somewhere
+near me, I hope to god she
+hears me...
+\end{quote}
+\subsection{What}
+\lipsum[30-32]
+
+\backmatter
+\makebib
+
+\begin{appendices}
+    \section{First appendix}
+    \lipsum[11-12]
+    \subsection{First subsection}
+    \subsubsection{First subsubsection}
+    \lipsum[23]
+    
+    \section{Another appendix}
+    \lipsum[24]
+\end{appendices}
+
+% history table entries will appear from first to last defined
+% inside 'document', you can put it anywhere but make sure it is
+% in the proper order as it won't be sorted by the 'solis' class
+\addhistory{2023/01/10}{1.1}{Author}{Fixed three typos at page \pageref{sec:Intro}}
+\addhistory{2023/02/24}{1.2}{Author}{Re-wrote two paragraphs at pages \pageref{subsec:Abc} and \pageref{subsec:Def}}
+\addhistory{2023/03/01}{1.3}{Author}{Removed two paragraphs at page \pageref{subsec:Def}}
+
+\end{document}
