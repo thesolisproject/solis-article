@@ -17,7 +17,6 @@
 \docstatus{Draft}
 
 % branch information, recommended but can be left empty
-% without any visual issues
 %\branch{Local Branch}
 \address{City, UF -- Brazil}
 \email{info@domain.org}
@@ -32,6 +31,9 @@
 \begin{abstract}
     \lipsum[20-21]
 \end{abstract}
+\keyword{Open Source}
+\keyword{Template}
+\keyword{Solis}
 
 \begin{document}
 \frontmatter
@@ -47,87 +49,18 @@
 
 \mainmatter
 % start of text
-\section[Introduction]{Introduction to Solis}
-\label{sec:Intro}
-\lipsum[3]
-\begin{widetext}
-    \lipsum[21]
-\end{widetext}
-\sidenote{So if she's somewhere near me, I hope to god she hears me...}
-\lipsum[4]
-
-\paragraph{Some paragraph}
-\label{par:Some}
-\lipsum[20]
-\sidenote{Is there really no chance to start once again... You should give a chance, this can't be the end...}
-
-\section{Background}
-\label{sec:Background}
-\lipsum[5]
-\sidenote{[1] ...would you see what I see... put your hand in my hand... At the skyfall, when it crumbles... [2] And now I don't why... I just can't let it die... So if she's somewhere near me...}
-\lipsum[6]
-\footnote{I see a shark, Mr. Greenz}
-\sidenote{Roses are red, violets are blue, the sky is also blue at least during the day, during the night it is... well, it has no color, it is transparent, that's why we can see the stars.}
-
-\subsection{ABC}
-\label{subsec:Abc}
-\lipsum[8]
-\footnote{Where is such beast?}
-\footnote{There, look south}
-\footnote{I can't se...}
-
-\subsubsection{xyz}
-\label{subsubsec:Xyz}
-\lipsum[16]
-\paragraph{Another paragraph}
-\lipsum[17]
-
-\subsection{DEF}
-\label{subsec:Def}
-\lipsum[9-12]
-\parencite{levine2014}
-\begin{widetext}
-    \lipsum[21]
-\end{widetext}
+\input{text/01_Intro}
+\input{text/02_Background}
 
 \part{The ``Solis''}
-\section{Policies}
-\label{sec:Policies}
-\lipsum[13]
-\begin{beware}[Of This]
-    \lipsum[25]
-\end{beware}
-
-\begin{verse}
-    So if she’s somewhere
-near me, I hope to god she
-hears me...
-\end{verse}
-\begin{quotation}
-    So if she’s somewhere
-near me, I hope to god she
-hears me...
-\end{quotation}
-\begin{quote}
-    So if she’s somewhere
-near me, I hope to god she
-hears me...
-\end{quote}
-\subsection{What}
-\lipsum[30-32]
+\input{text/03_Policies}
 
 \backmatter
 \makebib
 
 \begin{appendices}
-    \section{First appendix}
-    \lipsum[11-12]
-    \subsection{First subsection}
-    \subsubsection{First subsubsection}
-    \lipsum[23]
-    
-    \section{Another appendix}
-    \lipsum[24]
+    \input{appendices/A_First}
+    \input{appendices/B_Second}
 \end{appendices}
 
 % history table entries will appear from first to last defined

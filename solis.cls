@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{solis}[2023/02/28 v0.1.0 solis]
+\ProvidesClass{solis}[2023/03/09 v1.0 The Solis Project]
 \LoadClass[twoside,11pt]{article}
 
 \renewcommand{\author}[1]{\gdef\solis@author{#1}}
@@ -18,9 +18,11 @@
 \renewcommand{\date}{%
     \ClassError{solis}{Use `\\releasedate' command instead}}
 
-\newcommand{\hairsp}{\hspace{1pt}}
-\newcommand{\ie}{\textit{i.\nobreak\hairsp{}e.}}
-\newcommand{\eg}{\textit{e.\nobreak\hairsp{}g.}}
+\gdef\solis@slogan{There can be no peace without freedom}
+
+\providecommand{\hairsp}{\hspace{1pt}}
+\providecommand{\ie}{\textit{i.\nobreak\hairsp{}e.}}
+\providecommand{\eg}{\textit{e.\nobreak\hairsp{}g.}}
 
 \RequirePackage{calc}
 \RequirePackage{xifthen}
@@ -69,17 +71,17 @@
 ]{geometry}
 
 \RequirePackage[
-	bookmarks         = true,
+    bookmarks         = true,
     bookmarksnumbered = true,
     bookmarksopen     = true,
-	unicode           = true,
+    unicode           = true,
     colorlinks        = true,
     linktoc           = all,
-	linkcolor         = foreground,
+    linkcolor         = foreground,
     citecolor         = foreground,
     filecolor         = foreground,
     urlcolor          = foreground,
-	pdfstartview      = FitH,
+    pdfstartview      = FitH,
     pdfencoding       = auto
 ]{hyperref}
 \PassOptionsToPackage{hyphens}{url}
@@ -107,7 +109,7 @@
 
 \newenvironment{pagelayout}[1][fullwidth]
     {\ifthenelse{\equal{wide}{#1}}
-        {\newgeometry{
+        {\newgeometry{%
             includeall,
             hmargin      = 2.5cm,
             vmargin      = 0cm,
@@ -116,7 +118,7 @@
             foot         = 2cm,
             marginpar    = 0cm,
             marginparsep = 0cm,}}
-        {\newgeometry{
+        {\newgeometry{%
             hmargin      = 0cm,
             vmargin      = 0cm,
             marginpar    = 0cm,
@@ -133,41 +135,41 @@
 \fancypagestyle{plain}[empty]{%
     \fancyfoot[RO]{%
         \makebox[\@twwidth][r]{%
-	       \makebox[\@mpsep][c]{\color{foreground}\rule[-3mm]{2pt}{\footskip-2mm}}
-	       \makebox(\@mpwidth,\footskip-5mm)[lt]{\textbf{at page~\thepage~out of~\pageref{LastPage}}}}}
+           \makebox[\@mpsep][c]{\color{foreground}\rule[-3mm]{2pt}{\footskip-2mm}}
+           \makebox(\@mpwidth,\footskip-5mm)[lt]{\textbf{at page~\thepage~out of~\pageref{LastPage}}}}}
     \fancyfoot[LE]{%
         \makebox[\@twwidth][l]{%
-	       \makebox(\@mpwidth,\footskip-5mm)[rt]{\textbf{at page~\thepage~out of~\pageref{LastPage}}}
-	       \makebox[\@mpsep][c]{\color{foreground}\rule[-3mm]{2pt}{\footskip-2mm}}}}}
+           \makebox(\@mpwidth,\footskip-5mm)[rt]{\textbf{at page~\thepage~out of~\pageref{LastPage}}}
+           \makebox[\@mpsep][c]{\color{foreground}\rule[-3mm]{2pt}{\footskip-2mm}}}}}
 
 \fancypagestyle{text}[plain]{%
     \fancyhead[RO]{%
         \makebox[\@twwidth][r]{%
-        	\makebox[\@tcwidth][r]{\Large\textbf{\@markshort}}
-        	\makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+5mm}}
-        	\makebox(\@mpwidth,\headheight+5mm)[lb]{\Large\textbf{\thesection}}}}
+            \makebox[\@tcwidth][r]{\Large\textbf{\@markshort}}
+            \makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+5mm}}
+            \makebox(\@mpwidth,\headheight+5mm)[lb]{\Large\textbf{\thesection}}}}
     \fancyhead[LE]{%
         \makebox[\@twwidth][l]{%
-        	\makebox(\@mpwidth,\headheight+5mm)[rb]{\Large\textbf{\thesection}}
-        	\makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+5mm}}
-        	\makebox[\@tcwidth][l]{\Large\textbf{\@markshort}}}}}
+            \makebox(\@mpwidth,\headheight+5mm)[rb]{\Large\textbf{\thesection}}
+            \makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+5mm}}
+            \makebox[\@tcwidth][l]{\Large\textbf{\@markshort}}}}}
 
 \fancypagestyle{section}[plain]{%
     \fancyhead[RO]{%
         \makebox[\@twwidth][r]{%
-        	\makebox[\@tcwidth][r]{\fontsize{0.8cm}{0.8cm}\selectfont\textbf{\@marktitle}}
-        	\makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+15mm}}
-        	\makebox(\@mpwidth,\headheight+15mm)[lb]{\fontsize{2.75cm}{2.75cm}\selectfont\textbf{\color{foreground}\thesection}}}}
+            \makebox[\@tcwidth][r]{\fontsize{0.8cm}{0.8cm}\selectfont\textbf{\@marktitle}}
+            \makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+15mm}}
+            \makebox(\@mpwidth,\headheight+15mm)[lb]{\fontsize{2.75cm}{2.75cm}\selectfont\textbf{\color{foreground}\thesection}}}}
     \fancyhead[LE]{%
         \makebox[\@twwidth][l]{%
-        	\makebox(\@mpwidth,\headheight+15mm)[rb]{\fontsize{2.75cm}{2.75cm}\selectfont\textbf{\color{foreground}\thesection}}
-        	\makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+15mm}}
-        	\makebox[\@tcwidth][l]{\fontsize{0.8cm}{0.8cm}\selectfont\textbf{\@marktitle}}}}}
+            \makebox(\@mpwidth,\headheight+15mm)[rb]{\fontsize{2.75cm}{2.75cm}\selectfont\textbf{\color{foreground}\thesection}}
+            \makebox[\@mpsep][c]{\color{foreground}\rule{2pt}{\headheight+15mm}}
+            \makebox[\@tcwidth][l]{\fontsize{0.8cm}{0.8cm}\selectfont\textbf{\@marktitle}}}}}
 
 \fancypagestyle{widesection}[plain]{%
     \fancyhead[C]{%
         \makebox[\@twwidth][c]{%
-        	\fontsize{1.5cm}{1.5cm}\selectfont\textbf{\@marktitle}}}}
+            \fontsize{1.5cm}{1.5cm}\selectfont\textbf{\@marktitle}}}}
 
 \newcommand{\blankpage}{%
     \clearpage
@@ -229,7 +231,7 @@
             \vspace*{1cm}
             \par\refstepcounter{section}
             \sectionmark{#1}{#2}
-        	\phantomsection
+            \phantomsection
             \addcontentsline{toc}{section}{\fontseries{k}\selectfont\protect\numberline{\thesection}\textcolor{black}{\@markshort}}
             \thispagestyle{section}
             \leavevmode\newline}}
@@ -247,10 +249,10 @@
         {\color{foreground}\fontseries{b}\selectfont\large}}
 
 \renewcommand{\paragraph}[1]{%
-	\vspace*{0.25cm}
+    \vspace*{0.25cm}
     \par\refstepcounter{paragraph}
     \paragraphmark{#1}
-	\phantomsection
+    \phantomsection
     \IfEndWith{\thesubsubsection}{.0}
         {\IfEndWith{\thesubsection}{.0}%
             {\addcontentsline{toc}{subsection}{#1}}
@@ -260,7 +262,7 @@
     \textcolor{foreground}{\textbf{#1}}\hspace{0.15cm}}
 
 \renewcommand{\subparagraph}{%
-    \ClassError{solis}{This section was not implemented}\null}
+    \ClassError{solis}{This section is not implemented}}
 \renewenvironment{titlepage}
     {\ClassError{solis}{Title page cannot be overwritten}}
     {\null}
@@ -271,21 +273,27 @@
 \renewcommand{\tableofcontents}{%
     \ClassError{solis}{Use `\\maketoc' command instead}}
 \renewcommand{\listoffigures}{%
-    \ClassError{solis}{Use `\\makelof' command instead}}
+    \ClassError{solis}{This section is not implemented}}
 \renewcommand{\listoftables}{%
-    \ClassError{solis}{Use `\\makelot' command instead}}
+    \ClassError{solis}{This section is not implemented}}
 \renewenvironment{thebibliography}
     {\ClassError{solis}{Use `\\makebib' command instead}}
     {\null}
 \renewenvironment{theindex}
-    {\ClassError{solis}{Use `\\makeindex' command instead}}
+    {\ClassError{solis}{This section is not implemented}}
     {\null}
 \renewcommand{\appendix}{%
-    \ClassError{solis}{Use `appendix' environment instead}}
+    \ClassError{solis}{Use `appendices' environment instead}}
 
 \newcommand{\frontmatter}{\pagestyle{plain}}
 \newcommand{\mainmatter}{\pagestyle{text}}
 \newcommand{\backmatter}{\clearpage\pagestyle{plain}}
+
+\newcommand{\keyword}[1]{%
+    \ifthenelse{\isundefined{\solis@keywords}}
+        {\gdef\solis@keywords{#1}}
+        {\expandafter\gdef\expandafter\solis@keywords\expandafter{\solis@keywords, #1}}}
+\@onlypreamble\keyword
 
 \newsavebox{\@absbox}
 \renewenvironment{abstract}
@@ -299,7 +307,7 @@
 
 \newcommand{\maketoc}{%
     \clearpage
-	\phantomsection
+    \phantomsection
     \addcontentsline{toc}{section}{\textcolor{black}{\fontseries{k}\selectfont\contentsname}}
     \begin{pagelayout}[wide]
         \sectionmark{\null}{\contentsname}
@@ -316,29 +324,34 @@
             \noindent\Large\textbbf{\textcolor{foreground}{Abstract}}
             \vspace*{2.5mm}\\
             \large\unhcopy\@absbox\relax
+            \ifthenelse{\isundefined{\solis@keywords}}{}{%
+                \vspace*{1.25mm}\\
+                \noindent\textbf{Keywords: }\solis@keywords{}.}
         \end{pagelayout}}}
 
-\def\@startchangelog{%
+\newcommand{\@startchangelog}{%
     \InputIfFileExists{\jobname.changelog}
         {\typeout{solis: changelog...}}
         {\ClassError{solis}{Cannot create changelog}}
- 	\newwrite\@clfile\relax
- 	\immediate\openout\@clfile=\jobname.changelog\relax}
+     \newwrite\@clfile\relax
+     \immediate\openout\@clfile=\jobname.changelog\relax}
 
-\def\addhistory#1#2#3#4{%
- 	  \immediate\write\@clfile{#1 & #2 & #3 & #4\\ [1mm]}}
+\newcommand{\addhistory}[4]{%
+    \@nodocument
+       \immediate\write\@clfile{#1 & #2 & #3 & #4\\ [1mm]}}
 
 \newcommand{\makehistory}{%
     \clearpage
     \begingroup
     \renewcommand{\arraystretch}{1.5}
+    \setlength{\tabcolsep}{0pt}
     \begin{pagelayout}[wide]
         \pagestyle{plain}
         \noindent\Large\textbbf{\textcolor{foreground}{Edit History}}
         \vspace*{2.5mm}\\
         \large\input{static/history}\\
         \vspace*{0.25cm}\\
-        \begin{tabular}{p{2.9cm}p{2cm}p{4cm}p{5.5cm}}
+        \begin{tabular}{p{3cm}p{2.25cm}p{4cm}p{6.75cm}}
             \textbbf{\textcolor{foreground}{Date}} & \textbbf{\textcolor{foreground}{Version}} & \textbbf{\textcolor{foreground}{Editor}} & \textbbf{\textcolor{foreground}{Summary of changes}}\\
             \hline
             \@startchangelog
@@ -367,63 +380,64 @@
 
 \newcommand{\covername}{Cover}
 \newcommand{\makecover}{%
-	\phantomsection
+    \phantomsection
     \addcontentsline{toc}{section}{\textcolor{black}{\fontseries{k}\selectfont\covername}}
     \begin{pagelayout}
         \thispagestyle{empty}
-        \makebox(\paperwidth,\paperheight)[ct]{%
-            % organization background
-            \makebox[0pt]{%
-                \includegraphics[width=\paperwidth,height=\paperheight]{images/background}}
-            % organization slogan
-            \begin{textblock}{3.5}(2,5.5)
-                \raggedleft\noindent\large
-                \textcolor{foreground}{\textbf{There can be no peace without freedom}}
-            \end{textblock}
-            % organization information
-            \begin{textblock}{3.5}[0,1](1.5,14.85)
-                \raggedright\noindent\large
-                \textbbf{\ifthenelse{\isundefined{\solis@branch}}
-                    {Main Branch}
-                    {\solis@branch}}\\
-                \ifthenelse{\isundefined{\solis@address}}{}{\solis@address}\\
-                \vspace*{2.5mm}
-                \textbf{%
-                    \ifthenelse{\isundefined{\solis@email}}{}{\url{\solis@email}}\\
-                    \ifthenelse{\isundefined{\solis@contact}}{}{\large{\solis@contact}}}
-            \end{textblock}
-            % title and subtitle
-            \begin{textblock}{8.25}(6.15,3)
-                \raggedright\noindent
-                \textcolor{foreground}{\fontsize{1cm}{1cm}\selectfont\textbbf{\solis@title}}\\
-                \vspace*{2.5mm}
-                \fontsize{0.75cm}{0.75cm}\selectfont\textbf{%
-                    \ifthenelse{\isundefined{\solis@subtitle}}{}{\solis@subtitle}}
-            \end{textblock}
-            % document information
-            \begin{textblock}{8.25}[0,1](6.15,12)
-                \raggedright\noindent\Large
-                \textcolor{foreground}{\textbbf{Control Number}}\\
-                \solis@controlnumber\\
-                \vspace*{2.5mm}
-                \textcolor{foreground}{\textbbf{Context}}\\
-                \solis@context\\
-                \vspace*{2.5mm}
-                \textcolor{foreground}{\textbbf{Author}}\\
-                \solis@author\\
-                \vspace*{2.5mm}
-                \textcolor{foreground}{\textbbf{Release Date}}\\
-                \solis@releasedate\\
-                \vspace*{2.5mm}
-                \textcolor{foreground}{\textbbf{Document Type}}\\
-                \solis@doctype\\
-                \vspace*{2.5mm}
-                \textcolor{foreground}{\textbbf{Document Classification}}\\
-                \solis@docclass\\
-                \vspace*{2.5mm}
-                \textcolor{foreground}{\textbbf{Document Status}}\\
-                \solis@docstatus
-            \end{textblock}}
+        \noindent\newline\centering
+         % organization background
+        \begin{textblock*}{\paperwidth}(0cm,0cm)
+            \includegraphics[width=\paperwidth,height=\paperheight]{images/background}
+        \end{textblock*}
+        % organization slogan
+        \begin{textblock*}{4.75cm}(2cm,10cm)
+            \raggedleft\noindent\large
+            \textcolor{foreground}{\textbf{\solis@slogan}}
+        \end{textblock*}
+        % organization information
+        \begin{textblock*}{4.75cm}[0,1](2cm,\paperheight-2cm)
+            \raggedright\noindent\large
+            \textbbf{\ifthenelse{\isundefined{\solis@branch}}
+                {Main Branch}
+                {\solis@branch}}\\
+            \ifthenelse{\isundefined{\solis@address}}{}{\solis@address}\\
+            \vspace*{2.5mm}
+            \textbf{%
+                \ifthenelse{\isundefined{\solis@email}}{}{\url{\solis@email}}\\
+                \ifthenelse{\isundefined{\solis@contact}}{}{\large{\solis@contact}}}
+        \end{textblock*}
+        % title and subtitle
+        \begin{textblock*}{11cm}(8cm,5.5cm)
+            \raggedright\noindent
+            \textcolor{foreground}{\fontsize{1cm}{1cm}\selectfont\textbbf{\solis@title}}\\
+            \vspace*{2.5mm}
+            \fontsize{0.75cm}{0.75cm}\selectfont\textbf{%
+                \ifthenelse{\isundefined{\solis@subtitle}}{}{\solis@subtitle}}
+        \end{textblock*}
+        % document information
+        \begin{textblock*}{11cm}[0,1](8cm,22cm)
+            \raggedright\noindent\Large
+            \textcolor{foreground}{\textbbf{Control Number}}\\
+            \solis@controlnumber\\
+            \vspace*{2.5mm}
+            \textcolor{foreground}{\textbbf{Context}}\\
+            \solis@context\\
+            \vspace*{2.5mm}
+            \textcolor{foreground}{\textbbf{Author}}\\
+            \solis@author\\
+            \vspace*{2.5mm}
+            \textcolor{foreground}{\textbbf{Release Date}}\\
+            \solis@releasedate\\
+            \vspace*{2.5mm}
+            \textcolor{foreground}{\textbbf{Document Type}}\\
+            \solis@doctype\\
+            \vspace*{2.5mm}
+            \textcolor{foreground}{\textbbf{Document Classification}}\\
+            \solis@docclass\\
+            \vspace*{2.5mm}
+            \textcolor{foreground}{\textbbf{Document Status}}\\
+            \solis@docstatus
+        \end{textblock*}
     \end{pagelayout}}
 
 \renewcommand{\maketitle}{%
@@ -460,3 +474,15 @@
     {\oldendappendices
         \def\@currenvir{pagelayout}
         \end{pagelayout}}
+
+\AddToHook{enddocument}[solis:lastpage]{%
+    \begin{pagelayout}
+        \thispagestyle{empty}
+        \noindent\newline\centering
+        \begin{textblock*}{\paperwidth}(0cm,0cm)
+            \includegraphics[width=\paperwidth,height=\paperheight]{images/lastpage}
+        \end{textblock*}
+        \begin{textblock*}{0.75\paperwidth}[0.5,0.5](0.5\paperwidth,0.5\paperheight)
+            \large\textcolor{white}{\textbf{\solis@slogan}}
+        \end{textblock*}
+    \end{pagelayout}}
