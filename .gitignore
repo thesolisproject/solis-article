@@ -9,6 +9,5 @@
 *.bbl
 *.bcf
 *.blg
-*.changelog
 *.run.xml
 *.synctex.gz
