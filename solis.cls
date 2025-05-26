@@ -386,8 +386,7 @@
     \end{textblock*}
     % organization slogan
     \begin{textblock*}{4.75cm}(2cm,10cm)
-      \raggedleft\noindent\large
-      \textcolor{links}{\textbf{\solis@slogan}}
+      \colorbox{foreground}{\parbox{4.75cm}{\raggedleft\noindent\large\textbf{\solis@slogan}}}
     \end{textblock*}
     % organization information
     \begin{textblock*}{4.75cm}[0,1](2cm,\paperheight-2cm)
@@ -403,9 +402,9 @@
     \end{textblock*}
     % title and subtitle
     \begin{textblock*}{11cm}(8cm,5.5cm)
-      \raggedright\noindent
-      \textcolor{links}{\fontsize{1cm}{1cm}\selectfont\textbbf{\solis@title}}\\
-      \vspace*{2.5mm}
+      \colorbox{foreground}{\parbox{11cm}{%
+        \raggedright\noindent\fontsize{1cm}{1cm}\selectfont\textbbf{\solis@title}}}\\
+      \vspace*{2.5mm}\raggedright\noindent%
       \fontsize{0.75cm}{0.75cm}\selectfont\textbf{%
         \ifthenelse{\isundefined{\solis@subtitle}}{}{\solis@subtitle}}
     \end{textblock*}
